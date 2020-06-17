@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def posts_list(request):
+    n = ['Dasha', 'Moshe', 'Semen']
+    return render(request, 'blog/index.html', context={'names': n})
