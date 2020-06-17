@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import View
 from .models import Post, Tag
 
 
@@ -19,3 +20,4 @@ def tags_list(request):
 
 def tag_detail(request, slug):
     tag = Tag.objects.get(slug__iexact=slug)
+    return render(request, 'blog/tag_detail.html', context={'tag': tag})
