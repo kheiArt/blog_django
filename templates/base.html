@@ -47,7 +47,7 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="#">
+            <form class="form-inline my-2 my-lg-0" action="{% url 'posts_list_url' %}">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
                     name="search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -65,27 +65,55 @@
             {% endblock %}
         </div>
 
-        <!-- <nav aria-label="...">
+
+        {% if is_paginated %}
+
+
+        <nav aria-label="...">
             <ul class="pagination">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                <li class="page-item {% if not prev_url %} disabled {% endif %}">
+                    <a class="page-link" href="{{ prev_url }}" tabindex="-1">Previous</a>
                 </li>
 
+
+
+                {% for n in page_object.paginator.page_range %}
+                {% if page_object.number == n %}
                 <li class="page-item active" aria-current="page">
-
+                    <a class="page-link" href="?page={{ n }}">{{ n }}<span class="sr-only">(current)</span></a>
                 </li>
+
+                {% elif n > page_object.number|add:-3 and n < page_object.number|add:3 %}
 
                 <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
+                    <a class="page-link" href="?page={{ n }}">{{ n }}</a>
+                </li>
+                {% endif %}
+
+
+
+                {% endfor %}
+
+                <li class="page-item {% if not next_url %} disabled {% endif %}">
+                    <a class="page-link" href="{{ next_url }}" tabindex="-1">Next</a>
                 </li>
             </ul>
-        </nav> -->
+        </nav>
+        {% endif %}
+
+        {% if request.user.is_authenticated and request.user.is_staff %}
 
         <div class="admin-panel align-items-center">
             <a href="/admin" class="btn btn-outline-info">Admin</a>
             {% block admin-panel %}
             {% endblock %}
         </div>
+
+
+        {% endif %}
+
+
+
 
 
     </div>
