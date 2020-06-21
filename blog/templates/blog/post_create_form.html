@@ -6,24 +6,25 @@ Create Post - {{block.super}}
 {% endblock %}
 
 {% block content %}
+<div class='form-style' style="margin-left: 2%; margin-right: 35%;">
+    <form action="{% url 'post_create_url' %}" method="post">
+        {% csrf_token %}
 
-<form action="{% url 'post_create_url' %}" method="post">
-    {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            {% if field.errors %}
+            <div class="alert alert-danger"> {{field.errors}}</div>
 
-    {% for field in form %}
-    <div class="form-group">
-        {% if field.errors %}
-        <div class="alert alert-danger"> {{field.errors}}</div>
+            {% endif %}
 
-        {% endif %}
+            {{ field.label }}
+            {{ field }}
+        </div>
+        {% endfor %}
 
-        {{ field.label }}
-        {{ field }}
-    </div>
-    {% endfor %}
-
-
-    <button type="submit" class="btn btn-primary">Create post</button>
+</div>
+<button type="submit" class="btn btn-primary"
+    style="background-color: rgb(88,115,75); border-color: rgb(88,115,75); margin-left: 2%;">Create post</button>
 
 </form>
 

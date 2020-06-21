@@ -5,27 +5,28 @@ Tag create - {{block.super}}
 {% endblock %}
 
 {% block content %}
+<div class='form-style' style="margin-left: 2%; margin-right: 35%;">
+    <form action="{% url 'tag_create_url' %}" method="post">
+        {% csrf_token %}
 
-<form action="{% url 'tag_create_url' %}" method="post">
-    {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            {% if field.errors %}
+            <div class="alert alert-danger">
+                {{ field.errors }}
+            </div>
 
-    {% for field in form %}
-    <div class="form-group">
-        {% if field.errors %}
-        <div class="alert alert-danger">
-            {{ field.errors }}
+            {% endif %}
+
+            {{ field.label }}
+            {{ field }}
         </div>
-
-        {% endif %}
-
-        {{ field.label }}
-        {{ field }}
-    </div>
-    {% endfor %}
+        {% endfor %}
 
 
-    <button type="submit" class="btn btn-primary">Create tag</button>
+        <button style="background-color: rgb(88,115,75); border-color: rgb(88,115,75);" type="submit"
+            class="btn btn-primary">Create tag</button>
 
-</form>
-
+    </form>
+</div>
 {% endblock %}

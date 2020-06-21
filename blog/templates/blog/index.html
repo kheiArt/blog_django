@@ -5,8 +5,9 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="mb-5">Posts:</h1>
-
+<div class="text-center">
+    <h1 class=" mb-5">Posts:</h1>
+</div>
 {% for post in page_object.object_list %}
 {% include 'blog/includes/post_card_template.html' %}
 {% endfor %}

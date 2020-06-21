@@ -5,11 +5,13 @@ Tags List - {{ block.super }}
 {% endblock %}
 
 {% block content %}
-<h1 class="mb-5">Tags:</h1>
-
+<div class="text-center">
+    <h1 class="mb-5">Tags:</h1>
+</div>
 {% for tag in tags %}
-<h3><a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a></h3>
-
+<div class="tags_list" style="margin-left: 5%;">
+    <h3><a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a></h3>
+</div>
 
 {% endfor %}
 

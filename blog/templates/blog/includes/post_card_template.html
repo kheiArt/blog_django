@@ -1,13 +1,14 @@
-<div class="card">
-    <div class="card-header">
+<div class="card" style="margin-right: 20%;margin-left: 10%;margin-top: 5%; margin-bottom: 10px;">
+    <div class="card-header" style="background-color: rgb(214, 214, 214);">
         {{ post.date_pub }}
     </div>
-    <div class="card-body">
+    <div class="card-body" style="background-color: rgb(207,213,204);">
         <h5 class="card-title">{{ post.title }}</h5>
         <p class="card-text">{{ post.body|truncatewords:15 }}</p>
-        <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read</a>
+        <a href="{{ post.get_absolute_url }}" class="btn btn-primary"
+            style="background-color: rgb(88,115,75); border-color: rgb(88,115,75);">Read</a>
     </div>
-    <div class="card-footer text-muted">
+    <div class="card-footer text-muted" style="background-color: rgb(207,213,204);">
         Tags:
         {% for tag in post.tags.all %}
         <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
