@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>My blog (Backup 1592590893906)</title>
-    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barrio">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
-    <link rel="stylesheet" href="{% static '/assets/css/Lightbox-Gallery.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Lightbox-Gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block title %}
     Blog Engine
     {% endblock %}
@@ -20,15 +20,14 @@
 
 <body style="background-color: rgb(245,240,230);font-style: normal;">
     <section id="shapa" style="height: 60px;">
-        <h1 class="text-center" data-bs-hover-animate="pulse" id="title">Pet project לא מוכן</h1>
+        <h1 class="text-center" data-bs-hover-animate="pulse" id="title">Blog</h1>
     </section>
     <nav class="navbar navbar-light navbar-expand-md" style="background-color: #282727;color: rgb(255,255,255);">
-        <div class="container-fluid"><a class="navbar-brand" href="#"
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#"
                 style="color: rgba(255,255,255,0.9);">Home</a><button data-toggle="collapse" class="navbar-toggler"
                 data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
-                    class="navbar-toggler-icon"></span></button>
-            <!--  -->
-            <!--  -->
+                    class="navbar-toggler-icon"></span></button> -->
 
 
             <div class="collapse navbar-collapse" id="navcol-1">
@@ -37,8 +36,8 @@
                             href="{% url 'posts_list_url' %}" style="color: rgba(255,255,255,0.9);">Posts</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'tags_list_url' %}"
                             style="color: rgb(255,255,255);">Tags</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"
-                            style="color: rgb(255,255,255);">Hz</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="#"
+                            style="color: rgb(255,255,255);">Hz</a></li> -->
                 </ul>
 
                 <form class="form-inline my-2 my-lg-0" action="{% url 'posts_list_url' %}">
@@ -101,9 +100,9 @@
 
     {% endif %}
 
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 </body>
 
